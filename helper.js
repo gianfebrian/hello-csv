@@ -43,7 +43,7 @@ exports.sendSmsWithLogger = (debug) => {
   return (sendSms, logger) => {
     return (data, callback) => {
       // Could be be any sending service including the one provided in helper
-      sendSms(data, function(err, sendingStatus) {
+      sendSms(data, (err, sendingStatus) => {
         if (!err) {
           // When success immediate callback sending
           return callback(err, sendingStatus);
@@ -52,7 +52,7 @@ exports.sendSmsWithLogger = (debug) => {
         let dataToLog = { sendingStatus, data };
         // Could be any logging service including the one provided in helper
         // When error, callback logging, let the caller knows it's being logged.
-        logger(dataToLog, function(err, loggingStatus) {
+        logger(dataToLog, (err, loggingStatus) => {
           if (err) {
             debug(err.message);
           }
