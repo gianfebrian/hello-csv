@@ -1,4 +1,6 @@
 {
-    "preset": "airbnb",
-    "validateIndentation": 4
+  "esnext": true,
+  "preset": "node-style-guide",
+  "validateIndentation": 2,
+  "maximumLineLength": 100
 }
